@@ -4,15 +4,13 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
-	"github.com/hashicorp/consul/agent/config"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"regexp"
 	"strconv"
 	"strings"
-	"config.yaml"
+	"time"
 )
 
 const (
@@ -36,30 +34,11 @@ type MovieData struct {
 }
 
 func main() {
-	TestViper()
 	InitDB()
 	ch := make(chan bool)
 	go Spider(strconv.Itoa(1*25), ch)
 	<-ch
 	DB.Close()
-}
-
-func TestViper() {
-	viper.SetConfigType("yaml")
-	viper.SetConfigFile("config.yml")
-	//读取配置文件
-	err := viper.ReadInConfig()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	var _config *config.Config
-	//将配置文件读到结构体中
-	err = viper.Unmarshal(&_config)
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	username := _config.db.username
-	fmt.Println(viper.GetString("username"))
 }
 
 func Spider(page string, ch chan bool) {
@@ -102,6 +81,7 @@ func Spider(page string, ch chan bool) {
 			score := strings.Trim(s.Find("div.info > div.bd > div > span.rating_num").Text(), " ")
 			score = strings.Trim(score, "\n")
 			quote := strings.Trim(s.Find("div.info > div.bd > p.quote > span").Text(), " ")
+
 			if ok { //将爬取到的内容放进结构体中
 				movieData.Title = title
 				movieData.Director = director
@@ -164,12 +144,13 @@ func InsertSql(movieData MovieData) bool {
 		fmt.Println("tx fail", err)
 		return false
 	}
-	stmt, err := tx.Prepare("INSERT INTO movie (`Title`,`Director`,`Picture`,`Actor`,`Year`,`Score`,`Quote`) VALUES (?,?, ?,?,?,?,?)")
+	stmt, err := tx.Prepare("INSERT INTO movie(`Title`,`Director`,`Picture`,`Actor`,`Year`,`Score`,`Quote`,`CreatedAt`) VALUES (?,?,?,?,?,?,?,?)")
 	if err != nil {
 		fmt.Println("Prepare fail", err)
 		return false
 	}
-	_, err = stmt.Exec(movieData.Title, movieData.Director, movieData.Picture, movieData.Actor, movieData.Year, movieData.Score, movieData.Quote)
+	fmt.Println(time.Now())
+	_, err = stmt.Exec(movieData.Title, movieData.Director, movieData.Picture, movieData.Actor, movieData.Year, movieData.Score, movieData.Quote,time.Now())
 	if err != nil {
 		fmt.Println("Exec fail", err)
 		return false

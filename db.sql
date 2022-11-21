@@ -8,5 +8,6 @@ CREATE TABLE `movie` (
      `Year` varchar(255) DEFAULT NULL,
      `Score` varchar(255) DEFAULT NULL,
      `Quote` varchar(255) DEFAULT NULL,
+     `CreatedAt` datetime DEFAULT NULL,
      PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8;
