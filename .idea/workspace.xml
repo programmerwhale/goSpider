@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffb56c70-29b6-4ed5-ab9b-c7c68926f347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/initdb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/books/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/movie/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handler/viperHelper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handler/webRequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/initdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/initdb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viper.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +52,36 @@
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/douban/books" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GO_DEV\src\goSpider\douban\books" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GO_DEV\src\goSpider\douban\movie" />
       <recent name="E:\GO_DEV\src\goSpider\handler" />
       <recent name="E:\GO_DEV\go1.15.5\src\Spider\douban_movie_top250" />
       <recent name="E:\GO_DEV\go1.15.5\src\Spider" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="go build goSpider" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build goSpider/douban/movie">
+    <configuration name="go build goSpider/douban/books" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Spider" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/viper.go" />
-      <package value="goSpider" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/douban/books/main.go" />
+      <package value="goSpider/douban/books" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build goSpider/douban/movie" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Spider" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/douban/movie/main.go" />
+      <package value="goSpider/douban/movie" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -87,14 +103,6 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="Spider" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/douban_movie_top250/main.go" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Spider" />
       <working_directory value="$PROJECT_DIR$" />
@@ -105,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build goSpider/douban/movie" />
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build goSpider/douban/books" />
         <item itemvalue="Go Build.go build goSpider/handler (1)" />
         <item itemvalue="Go Build.go build goSpider/handler" />
-        <item itemvalue="Go Build.go build goSpider" />
-        <item itemvalue="Go Build.go build main.go (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -140,29 +148,34 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
+          <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
           <line>81</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
+          <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
           <line>108</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
+          <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
           <line>126</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
+          <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
           <line>38</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/handler/initdb.go</url>
-          <line>41</line>
+          <line>24</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/handler/webRequest.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
