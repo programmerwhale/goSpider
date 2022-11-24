@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"goSpider/handler"
 	"log"
 	"net/http"
 	"regexp"
@@ -34,7 +35,7 @@ type MovieData struct {
 }
 
 func main() {
-	InitDB()
+	DB=handler.InitDB()
 	ch := make(chan bool)
 	go Spider(strconv.Itoa(1*25), ch)
 	<-ch
@@ -70,9 +71,12 @@ func Spider(page string, ch chan bool) {
 		fmt.Println("fatal err")
 		log.Fatal(err)
 	}
+
+	// document.querySelector("#content > div > div.article > ol > li:nth-child(1) > div")
 	docDetail.Find("#content > div > div.article > ol > li > div"). //定位到html页面指定元素
 		Each(func(i int, s *goquery.Selection) { //循环遍历每一个指定元素
 			var movieData MovieData //实例化结构体
+			// document.querySelector("#content > div > div.article > ol > li:nth-child(1) > div > div.info > div.hd > a > span:nth-child(1)")
 			title := s.Find("div.info > div.hd > a > span:nth-child(1)").Text()
 			img := s.Find("div.pic > a > img")
 			imgTmp, ok := img.Attr("src")
@@ -118,21 +122,6 @@ func InfoSpite(info string) (director, actor, year string) {
 	yearRe, _ := regexp.Compile(`(\d+)`)
 	year = string(yearRe.Find([]byte(info)))
 	return
-}
-
-func InitDB() {
-
-	path := strings.Join([]string{USERNAME, ":", PASSWORD, "@tcp(", HOST, ":", PORT, ")/", DBNAME, "?charset=utf8"}, "")
-	fmt.Println(path)
-	DB, _ = sql.Open("mysql", path)
-	DB.SetConnMaxLifetime(10)
-	DB.SetMaxIdleConns(5)
-	if err := DB.Ping(); err != nil {
-		fmt.Println("opon database fail")
-		return
-	}
-	fmt.Println("connnect success")
-
 }
 
 func InsertSql(movieData MovieData) bool {
