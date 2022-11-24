@@ -17,7 +17,7 @@ func InitDB() *sql.DB {
 	port:=fmt.Sprintf("%v",Config.Get("db.port"))
 	dbname:=fmt.Sprintf("%v",Config.Get("db.dbname"))
 
-	connectionString := strings.Join([]string{username, ":", password, "@tcp(", host, ":", port, ")/", dbname, "?charset=utf8"}, "")
+	connectionString := strings.Join([]string{username, ":", password, "@tcp(", host, ":", port, ")/", dbname, "?charset=utf8"+"&parseTime=true"}, "")
 	fmt.Println(connectionString)
 	DB, _ = sql.Open("mysql", connectionString)
 	DB.SetConnMaxLifetime(10)

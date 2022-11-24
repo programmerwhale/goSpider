@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffb56c70-29b6-4ed5-ab9b-c7c68926f347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/douban/books/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/douban/movie/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/viperHelper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/webRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/books/addCollectBookIds.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/douban/books/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/initdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/initdb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
@@ -66,11 +64,20 @@
       <recent name="E:\GO_DEV\go1.15.5\src\Spider" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build goSpider/douban/movie">
-    <configuration name="go build goSpider/douban/books" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build goSpider/douban/books (1)">
+    <configuration name="go build goSpider/douban/books (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Spider" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/douban/books/addCollectBookIds.go" />
+      <package value="goSpider/douban/books" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build goSpider/douban/books" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Spider" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/douban/books/main.go" />
       <package value="goSpider/douban/books" />
       <directory value="$PROJECT_DIR$" />
@@ -94,15 +101,6 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build goSpider/handler" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="Spider" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/handler/viper.go" />
-      <package value="goSpider/handler/main.go" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Spider" />
       <working_directory value="$PROJECT_DIR$" />
@@ -113,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build goSpider/douban/books (1)" />
+        <item itemvalue="Go Build.go build goSpider/douban/books" />
         <item itemvalue="Go Build.go build goSpider/douban/movie" />
         <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Go Build.go build goSpider/douban/books" />
         <item itemvalue="Go Build.go build goSpider/handler (1)" />
-        <item itemvalue="Go Build.go build goSpider/handler" />
       </list>
     </recent_temporary>
   </component>
@@ -149,33 +147,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
-          <line>81</line>
+          <line>60</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
-          <line>108</line>
+          <line>87</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
-          <line>126</line>
+          <line>105</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/douban/movie/main.go</url>
-          <line>38</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/handler/initdb.go</url>
-          <line>24</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/handler/webRequest.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
