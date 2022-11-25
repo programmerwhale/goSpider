@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffb56c70-29b6-4ed5-ab9b-c7c68926f347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/douban/books/getRandomEmoji.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/douban/books/syncToNotion.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handler/notionRequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/douban/books/addCollectBookIds.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/books/addCollectBookIds.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/douban/books/syncToNotion.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/books/syncToNotion.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,12 +173,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>151</line>
+          <line>150</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>153</line>
+          <line>152</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -203,12 +198,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/addCollectBookIds.go</url>
-          <line>160</line>
+          <line>165</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/addCollectBookIds.go</url>
-          <line>139</line>
+          <line>141</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>

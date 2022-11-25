@@ -9,6 +9,7 @@ import (
 	"golang.org/x/net/context"
 	"log"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -17,6 +18,7 @@ var DB *sql.DB
 var ctx context.Context
 
 type BookData struct {
+	Id int `json:"Id"`
 	BookId   string `json:"bookId"`
 	Title    string `json:"title"`
 	Author   string `json:"author"`
@@ -31,15 +33,15 @@ func main() {
 	DB = handler.InitDB()
 	ch := make(chan bool)
 	// go getCollectBookIds(strconv.Itoa(5*15), ch)
-	bookIds := selectSql()
+	/*bookIds := selectSql()
 		for _, book := range bookIds {
 		spiderBookDetail(book)
-	}
+	}*/
 	//spiderBookDetail("27104959")
-	/*var books = selectBookInfo()
+	var books = selectBookInfo()
 	for _,book:=range books{
 		SyncToNotion(book)
-	}*/
+	}
 	<-ch
 	DB.Close()
 	//fmt.Println(GetRandomEmoji())
@@ -117,16 +119,17 @@ func selectSql() (res []string) {
 }
 
 func selectBookInfo() (res []BookData) {
-	rows, err := DB.Query("select title,author,picture,year,rating,page,readDate from books where IsAddToNotion=0")
+	rows, err := DB.Query("select id,title,author,picture,year,rating,page,readDate from books where IsAddToNotion=0 limit 0,10")
 	if err != nil {
 		fmt.Println("Exec fail", err)
 	}
 	for rows.Next() {
-		var title,author,picture,year,rating,page,readDate string
-		if err := rows.Scan(&title,&author,&picture,&year,&rating,&page,&readDate); err != nil {
+		var id,title,author,picture,year,rating,page,readDate string
+		if err := rows.Scan(&id,&title,&author,&picture,&year,&rating,&page,&readDate); err != nil {
 			fmt.Println(err)
 		}
 		var book BookData
+		book.Id, _ =strconv.Atoi(id)
 		book.Title=title
 		book.Author=author
 		book.Picture=picture
@@ -190,6 +193,30 @@ func updateSql(bookData BookData) bool {
 	}
 	fmt.Println(time.Now())
 	_, err = stmt.Exec(bookData.Title, bookData.Author, bookData.Picture, bookData.Year, bookData.Rating, bookData.Page, bookData.ReadDate, bookData.BookId)
+	if err != nil {
+		fmt.Println("Exec fail", err)
+		return false
+	}
+	_ = tx.Commit()
+	return true
+
+}
+func updateAddToNotionSql(id int) bool {
+
+	fmt.Println("UpdateSql")
+	tx, err := DB.Begin()
+
+	if err != nil {
+		fmt.Println("tx fail", err)
+		return false
+	}
+	stmt, err := tx.Prepare("update books set IsAddToNotion=1 where Id=?")
+	if err != nil {
+		fmt.Println("Prepare fail", err)
+		return false
+	}
+	fmt.Println(time.Now())
+	_, err = stmt.Exec(id)
 	if err != nil {
 		fmt.Println("Exec fail", err)
 		return false

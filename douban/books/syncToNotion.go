@@ -22,6 +22,8 @@ func SyncToNotion(data BookData)  {
 	json.Unmarshal(res, &f)
 	status := f.(map[string]interface{})["status"]
 	fmt.Println(status)
+
+	updateAddToNotionSql(data.Id)
 /*	if !IsNil(&status){
 		fmt.Println("已生成")
 	}else if status.(string)=="400"{
@@ -111,7 +113,6 @@ func CreateBookTrackerPages(databaseid,url string,model BookData) ([]byte, error
 	priority["id"]="seAH"
 	priority["type"]="select"
 	prioritySelect :=make(map[string]interface{})
-	prioritySelect["id"]="mnCc"
 	prioritySelect["name"]="📘"
 	prioritySelect["color"]="default"
 	priority["select"]= prioritySelect
@@ -127,9 +128,9 @@ func CreateBookTrackerPages(databaseid,url string,model BookData) ([]byte, error
 	titleTitle1:=make(map[string]interface{})
 	titleTitle1["type"]="text"
 	titleText:=make(map[string]interface{})
-	titleText["content"]=model.Title
+	titleText["content"]="《"+model.Title+"》"
 	titleTitle1["text"]=titleText
-	titleTitle1["plain_text"]=model.Title
+	titleTitle1["plain_text"]="《"+model.Title+"》"
 	titleTitle[0]=titleTitle1
 	title["title"]=titleTitle
 
