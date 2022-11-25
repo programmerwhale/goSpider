@@ -30,14 +30,19 @@ type BookData struct {
 func main() {
 	DB = handler.InitDB()
 	ch := make(chan bool)
-	//go getCollectBookIds(strconv.Itoa(0*15), ch)
-	//bookIds := selectSql()
-	/*	for _, book := range bookIds {
+	// go getCollectBookIds(strconv.Itoa(5*15), ch)
+	bookIds := selectSql()
+		for _, book := range bookIds {
 		spiderBookDetail(book)
+	}
+	//spiderBookDetail("27104959")
+	/*var books = selectBookInfo()
+	for _,book:=range books{
+		SyncToNotion(book)
 	}*/
-	spiderBookDetail("30221268")
 	<-ch
 	DB.Close()
+	//fmt.Println(GetRandomEmoji())
 }
 
 func getCollectBookIds(paramStr string, ch chan bool) {
@@ -96,7 +101,7 @@ func insertSql(bookData BookData) bool {
 }
 
 func selectSql() (res []string) {
-	rows, err := DB.Query("select BookId from books where IsAddToNotion=0")
+	rows, err := DB.Query("select BookId from books where IsCollect=0")
 	if err != nil {
 		fmt.Println("Exec fail", err)
 	}
@@ -110,6 +115,31 @@ func selectSql() (res []string) {
 	}
 	return res
 }
+
+func selectBookInfo() (res []BookData) {
+	rows, err := DB.Query("select title,author,picture,year,rating,page,readDate from books where IsAddToNotion=0")
+	if err != nil {
+		fmt.Println("Exec fail", err)
+	}
+	for rows.Next() {
+		var title,author,picture,year,rating,page,readDate string
+		if err := rows.Scan(&title,&author,&picture,&year,&rating,&page,&readDate); err != nil {
+			fmt.Println(err)
+		}
+		var book BookData
+		book.Title=title
+		book.Author=author
+		book.Picture=picture
+		book.Year=year
+		book.Rating=rating
+		book.Page=page
+		book.ReadDate=readDate
+
+		res = append(res, book)
+	}
+	return res
+}
+
 func spiderBookDetail(id string) (bookData BookData) {
 	resp := handler.WebRequest("GET", "https://book.douban.com/subject/", id)
 	defer resp.Body.Close()
@@ -118,9 +148,12 @@ func spiderBookDetail(id string) (bookData BookData) {
 		fmt.Println("fatal err")
 		log.Fatal(err)
 	}
-
 	title := docDetail.Find("#wrapper > h1 > span").Text()
 	author := docDetail.Find("#info > span:nth-child(1) > a").Text()
+	if len(author)==0{
+		author = docDetail.Find("#info > a:nth-child(2)").Text()
+		author=strings.TrimSpace(author)
+	}
 	picture, _ := docDetail.Find("#mainpic > a").Attr("href")
 	info := docDetail.Find("#info").Text()
 	year, page := infoSpite(info)
@@ -137,6 +170,8 @@ func spiderBookDetail(id string) (bookData BookData) {
 	bookData.Page = page
 	bookData.ReadDate = readDate
 	updateSql(bookData)
+
+	//SyncToNotion(bookData)
 	return
 }
 func updateSql(bookData BookData) bool {
@@ -164,7 +199,7 @@ func updateSql(bookData BookData) bool {
 
 }
 func infoSpite(info string) (year, page string) {
-	yearRe, _ := regexp.Compile(`(\d+)`)
+	yearRe, _ := regexp.Compile(`\d{4}`)
 	year = string(yearRe.Find([]byte(info)))
 	pageRe, _ := regexp.Compile(`页数: -?[1-9]\d*`)
 	page = string(pageRe.Find([]byte(info)))
