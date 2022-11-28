@@ -4,7 +4,9 @@
     <list default="true" id="ffb56c70-29b6-4ed5-ab9b-c7c68926f347" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/douban/books/addCollectBookIds.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/books/addCollectBookIds.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/douban/books/getRandomEmoji.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/books/getRandomEmoji.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/douban/books/syncToNotion.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/books/syncToNotion.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/notionRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/notionRequest.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +27,6 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="2HhQzemfNbEDGkcXIuBMbYSYihm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -47,6 +46,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/douban/books" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
@@ -158,27 +158,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>10</line>
+          <line>11</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>15</line>
+          <line>16</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>32</line>
+          <line>35</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>150</line>
+          <line>152</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/syncToNotion.go</url>
-          <line>152</line>
+          <line>154</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -198,12 +198,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/addCollectBookIds.go</url>
-          <line>165</line>
+          <line>166</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/douban/books/addCollectBookIds.go</url>
-          <line>141</line>
+          <line>142</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>

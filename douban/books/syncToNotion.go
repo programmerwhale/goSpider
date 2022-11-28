@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"goSpider/handler"
 	"strconv"
+	"strings"
 )
 
 func SyncToNotion(data BookData)  {
@@ -43,8 +44,7 @@ func CreateBookTrackerPages(databaseid,url string,model BookData) ([]byte, error
 
 	icon := make(map[string]interface{})
 	icon["type"]="emoji"
-	// todo: emoji
-	icon["emoji"]="📚"
+	icon["emoji"]=strings.TrimSpace(GetRandomEmoji())
 
 	parent := make(map[string]interface{})
 	parent["type"] = "database_id"

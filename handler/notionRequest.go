@@ -49,5 +49,5 @@ func PostHttpsSkip(url string, bytesData []byte) ([]byte, error) {
 	defer client.CloseIdleConnections()
 
 	fmt.Println(url)
-	return body, nil
+	return body, err
 }
