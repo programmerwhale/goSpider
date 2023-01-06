@@ -37,7 +37,7 @@ func main() {
 		for _, book := range bookIds {
 		spiderBookDetail(book)
 	}*/
-	//spiderBookDetail("27104959")
+	//spiderBookDetail("30422584")
 	var books = selectBookInfo()
 	for _,book:=range books{
 		SyncToNotion(book)
@@ -162,6 +162,9 @@ func spiderBookDetail(id string) (bookData BookData) {
 	year, page := infoSpite(info)
 	readDateInfo := docDetail.Find("#interest_sect_level > div > span.color_gray").Text()
 	readDate := readDateInfoSpite(readDateInfo)
+	if readDate==""{
+		readDate =time.Now().Format("2006-01-02")
+	}
 	rating, _ := docDetail.Find("#n_rating").Attr("value")
 
 	bookData.BookId = id
